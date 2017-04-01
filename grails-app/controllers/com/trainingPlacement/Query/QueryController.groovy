@@ -2,5 +2,8 @@ package com.trainingPlacement.Query
 
 class QueryController {
 
-    def index() { }
+    def index() {
+
+        render "inside query"
+    }
 }

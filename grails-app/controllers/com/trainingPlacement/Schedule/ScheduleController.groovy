@@ -2,5 +2,8 @@ package com.trainingPlacement.Schedule
 
 class ScheduleController {
 
-    def index() { }
+    def index() {
+
+        render "inside schedule"
+    }
 }
