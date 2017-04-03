@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Training & Placement</title>
+    <title>Expense-Tracker</title>
     <asset:stylesheet src="bootstrap.min.css"/>
     <asset:stylesheet src="material.min.css"/>
     <asset:stylesheet src="animate.min.css"/>
@@ -33,43 +33,47 @@
 
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="/query/index" class="simple-text">
+                    <a href="/dashBoard/index" class="simple-text">
                         Training & Placement
                     </a>
                 </div>
 
                 <ul class="nav">
-                    <li class="${params.controller == 'query' ? 'active':''}">
-                        <a href="/query/index">
-                            <i class="fa fa-fw fa-question-circle"></i>
-                            <p> Queries </p>
+                    <li class="${params.controller == 'newsfeed' ? 'active':''}">
+                        <a href="/newsfeed/index">
+                            <i class="fa fa-fw fa-newspaper-o"></i>
+                            <p>News Feed</p>
                         </a>
                     </li>
-                    <li class="${params.controller == 'company' ? 'active':''}">
-                        <a href="/company/index">
-                            <i class="fa fa-fw fa-plus-circle"></i>
-                            <p> Add a company </p>
+
+                    <li class="${params.controller == 'resume' ? 'active':''}">
+                        <a href="/resume/index">
+                            <i class="fa fa-fw fa-file-text-o"></i>
+                            <p>Resume</p>
                         </a>
-                    </li>
-                    <li class="${params.controller == 'company' ? 'active':''}">
-                        <a href="/company/list">
-                            <i class="fa fa-fw fa-list-ul"></i>
-                            <p> Company List </p>
-                        </a>
-                    </li>
-                    <li class="${params.controller == 'schedule' ? 'active':''}">
-                       <a href="/schedule/list">
-                            <i class="fa fa-fw fa-clock-o"></i>
-                            <p> Scheduled Companies </p>
-                       </a>
                      </li>
 
-                    <li class="${params.controller == 'user' ? 'active':''}">
-                       <a href="/user/index">
+                    <li  class="${params.controller == 'question' ? 'active':''}">
+                        <a href="/question/index">
+                            <i class="fa fa-fw fa-question-circle"></i>
+                            <p>Questions</p>
+                        </a>
+                    </li>
+
+                    <li  class="${params.controller == 'feedback' ? 'active':''}">
+                        <a href="/feedback/index">
+                            <i class="fa fa-fw fa-comments-o"></i>
+                            <p>Feed Back</p>
+                        </a>
+                    </li>
+
+                    <li class="${params.controller == 'profile' ? 'active':''}">
+                        <a href="/profile/index">
                             <i class="fa fa-fw fa-user"></i>
-                            <p> My Profile</p>
-                       </a>
-                     </li>
+                            <p>Profile</p>
+                        </a>
+                    </li>
+
                     <li class="${params.controller == 'settings' ? 'active':''}">
                         <a href="/settings/index">
                             <i class="fa fa-fw fa-cog"></i>
@@ -78,7 +82,7 @@
                     </li>
                     </hr>
                 </ul>
-            </div>+
+            </div>
         </div>
 
         <div class="main-panel">
