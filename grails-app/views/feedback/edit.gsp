@@ -4,9 +4,11 @@
     <body>
         <content tag="body">
 
-         <g:form controller="feedback" action="save" method="post">
+         <g:form controller="feedback" action="update" method="post">
+           <input type="hidden" name="id" value="${editInstance.id}">
           Company Name :
           <select name="cname">
+           <option selected disabled value="${editInstance.companydetails.companyName}"> ${editInstance.companydetails.companyName} </option>
             <g:each in="${abc}">
                 <option value="${it.companyName}">${it.companyName}</option>
             </g:each>
@@ -23,6 +25,7 @@
           Review :
           <br>
           <textarea name="review" rows="4" cols="50">
+          ${editInstance.review}
           </textarea>
           <br>
           <br>

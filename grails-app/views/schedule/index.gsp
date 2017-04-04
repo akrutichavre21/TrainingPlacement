@@ -6,7 +6,11 @@
 
          <g:form controller="schedule" action="save" method="post">
           Company Name :
-          <input type="text" name="cname" required>
+           <select name="cname">
+             <g:each in="${abc}">
+                 <option value="${it.companyName}">${it.companyName}</option>
+             </g:each>
+           </select>
           <br>
           <br>
           Arrival Date :

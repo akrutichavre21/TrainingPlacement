@@ -8,6 +8,11 @@ class ScheduleController {
     @Secured (['ROLE_ADMIN'])
     def index(){
 
+        def categoryList = CompanyDetails.findAll([sort:"companyName", order:"asc"])
+        println categoryList
+        println categoryList.companyName
+        render (view :'index' , model : [abc : categoryList])
+
     }
 
     @Secured (['ROLE_ADMIN'])
