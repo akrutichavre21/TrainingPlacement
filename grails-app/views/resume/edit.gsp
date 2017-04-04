@@ -6,9 +6,10 @@
 	</head>
 	<body>
     <content tag="body">
-		<form id="resume-form" action="/resume/save" method="post">
+		<form id="resume-form" action="/resume/update" method="post">
+           <input type="hidden" name="id" value="${editinstance.id}">
 		   Name:<br>
-
+             <input type="text" name="r_fullname" id="r_fullname" value="${editinstance.profile.fullName}" disabled><br><br>
 		   Aggregate:<br>
 		   <input type="number" name="r_agg" id="r_agg" value="${editinstance.aggregate}"><br><br>
 		   Father's Name:<br>
