@@ -23,6 +23,7 @@
  <br><br>
 
  DATE OF BIRTH:
+
  <input type ="date"  name="dateOfbirth" required>
  <br>
  <br>

@@ -3,13 +3,15 @@ package com.trainingPlacement.Settings
 import grails.plugin.springsecurity.annotation.Secured
 import com.trainingPlacement.SpringSecurity.User
 import com.trainingPlacement.Profile.Profile
+import sun.java2d.cmm.Profile
+
 class SettingsController {
 
     def springSecurityService
 
     @Secured(['permitAll'])
     def index() {
-        render "success"
+        //def authorinstance = User.get(springSecurityService.currentUser.id)
     }
 
     @Secured(['permitAll'])
@@ -53,4 +55,8 @@ class SettingsController {
     def profile(){
 
       }
+
+
+
+
 }

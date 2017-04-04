@@ -67,7 +67,7 @@ class CompanyController {
         updateinstance.bioData = biodata
         updateinstance.salaryMin = salarymin
         updateinstance.salaryMax = salarymax
-        updateinstance.lastupdated = new Date()
+        updateinstance.lastUpdated = new Date()
         updateinstance.headQuarters = headquarters
         updateinstance.criteriaAggregate = criteriaaggregate
         updateinstance.criteriaBacklog = criteriabacklog
