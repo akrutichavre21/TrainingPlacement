@@ -28,5 +28,6 @@ class UserDetails {
        aliveBacklog blank:false,nullable:false,min:0
         address blank:false,nullable:false
         achievements blank: false, nullable: false
+        profile unique: true
     }
 }

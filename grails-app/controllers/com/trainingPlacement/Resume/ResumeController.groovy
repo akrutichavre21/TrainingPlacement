@@ -14,15 +14,21 @@ class ResumeController {
     def index(){
         def userinstance = User.get(springSecurityService.currentUser.id)
         println "userInst: "+userinstance
+
         def uid= User.get(userinstance.id)
         println "uid:"+uid.id
+
         def profileinstance = Profile.findByUser(uid)
         println "profileInst: "+profileinstance.id
-        def pid= Profile.get(profileinstance.id)
-        def userDetail = UserDetails.findByProfile(pid)
-        println userDetail.id
-        render (view:'index' , model:[abc:userDetail])
 
+        def pid= Profile.get(profileinstance.id)
+        println "pid:" +pid.fullName
+
+        def userDetail = UserDetails.findByProfile(pid)
+        println "userdetails: "+userDetail.id
+        println "FullName: "+userDetail.profile.fullName
+        println "id: "+userDetail.id
+        render (view:'index' , model:[abc:userDetail])
     }
 
     def save(String r_address,String r_fathername,String r_mothername,String r_achievments,String r_hobbies,String r_biodata,Integer r_twelfth,Integer r_tenth, Integer r_alivebacklog) {
@@ -67,8 +73,23 @@ class ResumeController {
         redirect(controller:'user',action:'home')
     }
     @Secured(['permitAll'])
-    def update(){
+    def update(String s_fullname,String r_address,String r_agg,String r_fathername,String r_mothername,String r_achievments,String r_hobbies,String r_biodata,Integer r_twelfth,Integer r_tenth, Integer r_alivebacklog,String id){
+      println id
+      def updateinstance= UserDetails.get(Integer.parseInt(id))
+        println updateinstance
+        updateinstance.address= r_address
+        updateinstance.aggregate= Integer.parseInt(r_agg)
+        updateinstance.fatherName= r_fathername
+        updateinstance.motherName= r_mothername
+        updateinstance.achievements=r_achievments
+        updateinstance.hobbies= r_hobbies
+        updateinstance.twelfthPercentage= r_twelfth
+        updateinstance.tenthPercentage= r_tenth
+        updateinstance.aliveBacklog= r_alivebacklog
+        updateinstance.bioData=r_biodata
+        updateinstance.save()
 
+        redirect(controller:'resume', action:'index')
 
     }
 
@@ -79,4 +100,9 @@ class ResumeController {
 
     @Secured(['permitAll'])
     def create(){}
+    @Secured(['permitAll'])
+    def view(){
+        def instance = UserDetails.list()
+        println "id is :"+instance
+    }
 }
