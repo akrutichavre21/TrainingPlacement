@@ -3,7 +3,8 @@ import com.trainingPlacement.Schedule.Schedule
 import com.trainingPlacement.CompanyDetails.CompanyDetails
 import grails.plugin.springsecurity.annotation.Secured
 
-import grails.plugin.springsecurity.annotation.Secured
+
+class ScheduleController {
 
     @Secured (['ROLE_ADMIN'])
     def index(){
