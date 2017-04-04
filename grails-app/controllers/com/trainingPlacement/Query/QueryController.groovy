@@ -8,7 +8,7 @@ class QueryController {
 
     def springSecurityService
 
-    @Secured(['permitAll'])
+    @Secured(['ROLE_ADMIN'])
     def index() {
 
     }
