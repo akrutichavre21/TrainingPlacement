@@ -34,7 +34,7 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="/query/index" class="simple-text">
-                        Training & Placement
+                     Training & Placement
                     </a>
                 </div>
 
@@ -42,32 +42,32 @@
                     <li class="${params.controller == 'query' ? 'active':''}">
                         <a href="/query/index">
                             <i class="fa fa-fw fa-question-circle"></i>
-                            <p> Queries </p>
+                            <p>Queries</p>
                         </a>
                     </li>
                     <li class="${params.controller == 'company' ? 'active':''}">
                         <a href="/company/index">
                             <i class="fa fa-fw fa-plus-circle"></i>
-                            <p> Add a company </p>
+                            <p>Add Company</p>
                         </a>
                     </li>
                     <li class="${params.controller == 'company' ? 'active':''}">
                         <a href="/company/list">
                             <i class="fa fa-fw fa-list-ul"></i>
-                            <p> Company List </p>
+                            <p>Company List</p>
                         </a>
                     </li>
                     <li class="${params.controller == 'schedule' ? 'active':''}">
                        <a href="/schedule/list">
                             <i class="fa fa-fw fa-clock-o"></i>
-                            <p> Scheduled Companies </p>
+                            <p>Scheduled Company</p>
                        </a>
                      </li>
 
                     <li class="${params.controller == 'user' ? 'active':''}">
                        <a href="/user/index">
                             <i class="fa fa-fw fa-user"></i>
-                            <p> My Profile</p>
+                            <p>Profile</p>
                        </a>
                      </li>
                     <li class="${params.controller == 'settings' ? 'active':''}">
@@ -78,7 +78,7 @@
                     </li>
                     </hr>
                 </ul>
-            </div>+
+            </div>
         </div>
 
         <div class="main-panel">
