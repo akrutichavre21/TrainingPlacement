@@ -5,7 +5,6 @@ import grails.plugin.springsecurity.annotation.Secured
 import com.trainingPlacement.UserDetails.UserDetails
 import com.trainingPlacement.Profile.Profile
 
-
 class ResumeController {
 
     def springSecurityService
