@@ -12,6 +12,7 @@ class SettingsController {
     @Secured(['permitAll'])
     def index() {
         //def authorinstance = User.get(springSecurityService.currentUser.id)
+        render "success"
     }
 
     @Secured(['permitAll'])
@@ -56,6 +57,22 @@ class SettingsController {
 
       }
 
+    @Secured(['permitAll'])
+    def password() {}
+
+    @Secured(['permitAll'])
+    def changePassword(String current_password, String new_password, String confirm_password) {
+
+        User activeUser = springSecurityService.currentUser
+        def password_old = current_password
+        if(!springSecurityService.passwordEncoder.isPasswordValid(activeUser.getPassword(), password_old, null)) {
+            render "incorrect"
+        }else {
+            User changePassword = User.get(springSecurityService.currentUser.id)
+            changePassword.password = new_password
+            render "password changed successfully"
+        }
+    }
 
 
 
