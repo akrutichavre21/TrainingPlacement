@@ -16,7 +16,6 @@ class Profile {
        college blank:false,nullable:false
         dateOfBirth blank:false,nullable:false
         contactNo blank:false,nullable:false
-
     }
 
     enum Gender{

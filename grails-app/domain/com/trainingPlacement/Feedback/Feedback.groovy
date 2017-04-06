@@ -1,7 +1,7 @@
 package com.trainingPlacement.Feedback
 
 import com.trainingPlacement.CompanyDetails.CompanyDetails
-
+import com.trainingPlacement.SpringSecurity.User
 class Feedback {
 
     Date dateCreated
@@ -9,6 +9,7 @@ class Feedback {
     CompanyDetails companydetails
     Status status
     String review
+    User user;
 
     static constraints = {
         review blank:false,nullable:false
