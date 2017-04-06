@@ -21,12 +21,9 @@ class ResumeController {
         println "profileInst: "+profileinstance.id
 
         def pid= Profile.get(profileinstance.id)
-        println "pid:" +pid.fullName
+        println "pid:" +pid.id
 
         def userDetail = UserDetails.findByProfile(pid)
-        println "userdetails: "+userDetail.id
-        println "FullName: "+userDetail.profile.fullName
-        println "id: "+userDetail.id
         render (view:'index' , model:[abc:userDetail])
     }
 
@@ -69,7 +66,7 @@ class ResumeController {
         println "backlog:"+newInstance.aliveBacklog
         newInstance.save()
 
-        redirect(controller:'user',action:'home')
+        redirect(controller:'resume',action:'index')
     }
     @Secured(['permitAll'])
     def update(String s_fullname,String r_address,String r_agg,String r_fathername,String r_mothername,String r_achievments,String r_hobbies,String r_biodata,Integer r_twelfth,Integer r_tenth, Integer r_alivebacklog,String id){

@@ -8,13 +8,17 @@ import grails.plugin.springsecurity.annotation.Secured
 
 class QueryController {
 
-    @Secured(['ROLE_ADMIN'])
+def springSecurityService
+
+    @Secured(['ROLE_USER'])
     def index() {
 
         def listinstance = Discussion.list()
         render(view: 'index', model: [abc: listinstance])
+    }
 
     def save() {
+
         def authorinstance=User.get(springSecurityService.currentUser.id)
         println authorinstance
         Discussion discussinstance= new Discussion([
@@ -31,6 +35,10 @@ class QueryController {
         println discussinstance.lastUpdate
         println discussinstance.author
         discussinstance.save()
-        redirect(controller:"query",action:"index")
+        redirect(controller:"query",action:"list")
+    }
+
+    def list() {
+        [newsfeed: Discussion.list()]
     }
 }

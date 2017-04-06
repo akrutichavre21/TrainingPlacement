@@ -40,18 +40,18 @@
 
                 <ul class="nav">
                     <li class="${params.controller == 'query' ? 'active':''}">
-                        <a href="/query/index">
+                        <a href="/query/list">
                             <i class="fa fa-fw fa-question-circle"></i>
-                            <p>Queries</p>
+                            <p>Query</p>
                         </a>
                     </li>
-                    <li class="${params.controller == 'company' ? 'active':''}">
+                    <li class="${params.controller == 'company' && params.action == 'index'? 'active':''}">
                         <a href="/company/index">
                             <i class="fa fa-fw fa-plus-circle"></i>
                             <p>Add Company</p>
                         </a>
                     </li>
-                    <li class="${params.controller == 'company' ? 'active':''}">
+                    <li class="${params.controller == 'company' && params.action == 'list' ? 'active':''}">
                         <a href="/company/list">
                             <i class="fa fa-fw fa-list-ul"></i>
                             <p>Company List</p>
@@ -64,13 +64,13 @@
                        </a>
                      </li>
 
-                    <li class="${params.controller == 'user' ? 'active':''}">
-                       <a href="/user/index">
+                    <li class="${params.controller == 'settings' && params.action == 'profile' ? 'active':''}">
+                       <a href="/settings/profile">
                             <i class="fa fa-fw fa-user"></i>
                             <p>Profile</p>
                        </a>
                      </li>
-                    <li class="${params.controller == 'settings' ? 'active':''}">
+                    <li class="${params.controller == 'settings' && params.action == 'index' ? 'active':''}">
                         <a href="/settings/index">
                             <i class="fa fa-fw fa-cog"></i>
                             <p>Settings</p>

@@ -1,4 +1,4 @@
-<g:applyLayout name="mainLayout">
+<g:applyLayout name="mainLayoutStudent">
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,7 +18,7 @@
 	</head>
 	<body>
     <content tag="body">
-
+        <g:if test="${abc}">
 
 	<center><h1>${abc.profile.fullName}</h1></center>
      <table width=100%>
@@ -33,7 +33,7 @@
      </table>
      <br><br>
 
-     <table width="100%"  >
+     <table width="100%">
      <tr>
      <th>about:<p>${abc.bioData}</p></th></tr>
      </table>
@@ -62,7 +62,13 @@
 		<g:link controller="resume" action="edit" id="${abc.id}">
 		<button type="button" name="edit">EDIT</button>
 		</g:link>
-       </content>
+        </g:if>
+        <g:else>
+            <g:link controller="resume" action="create">
+                <button type="submit">Create</button>
+            </g:link>
+        </g:else>
+    </content>
 	</body>
 </html>
 </g:applyLayout>

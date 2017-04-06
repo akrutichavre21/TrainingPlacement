@@ -3,7 +3,6 @@ package com.trainingPlacement.Settings
 import grails.plugin.springsecurity.annotation.Secured
 import com.trainingPlacement.SpringSecurity.User
 import com.trainingPlacement.Profile.Profile
-import sun.java2d.cmm.Profile
 
 class SettingsController {
 
@@ -11,20 +10,21 @@ class SettingsController {
 
     @Secured(['permitAll'])
     def index() {
-        //def authorinstance = User.get(springSecurityService.currentUser.id)
-        render "success"
+        def user = User.get(springSecurityService.currentUser.id)
+        def profileInstance  = Profile.findByUser(user)
+        render(view:'index',model:[profile:profileInstance])
     }
 
     @Secured(['permitAll'])
 
-    def save(){
+    def save(String id){
 
         def genderStatus
         def gender
         println "hello"
         def currentUser = User.get(springSecurityService.currentUser.id)
         println currentUser
-        def dateinstance = Date.parse("yyyy-MM-dd","${params.dateOfbirth}")
+        def dateinstance = Date.parse("yyyy-MM-dd","${params.dob}").clearTime()
 
         if(gender == 'Male') {
             genderStatus = Profile.Gender.MALE
@@ -33,29 +33,33 @@ class SettingsController {
             genderStatus = Profile.Gender.FEMALE
         }
 
-         Profile a= new Profile([
-                 fullName:params.fullName,
-                 dateOfBirth:dateinstance,
-                 gender:genderStatus,
-                 contactNo:params.contactNumber,
-                 college:params.college,
-                 user:currentUser
-         ])
-        println a.fullName
-        println a.dateOfBirth
-        println a.gender
-        println a.contactNo
-        println a.college
-        println a.user
+         Profile a= Profile.get(Integer.parseInt(id))
+                 a.fullName=params.fullname
+                 a.dateOfBirth=dateinstance
+                 a.gender=genderStatus
+                 a.contactNo=Long.parseLong(params.contact)
+                 a.college=params.college
+
         a.save()
         redirect(controller:'settings', action: 'index')
 
     }
 
-   @Secured(['permitAll'])
+   @Secured(['ROLE_ADMIN'])
     def profile(){
-
+            def userInstance = User.get(springSecurityService.currentUser.id)
+            println userInstance.id
+            def profileInstance = Profile.findByUser(userInstance)
+            render(view:'profile', model:[profile: profileInstance])
       }
+
+    @Secured(['ROLE_USER'])
+    def studentProfile(){
+        def userInstance = User.get(springSecurityService.currentUser.id)
+        println userInstance.id
+        def profileInstance = Profile.findByUser(userInstance)
+        render(view:'studentProfile', model:[profile: profileInstance])
+    }
 
     @Secured(['permitAll'])
     def password() {}

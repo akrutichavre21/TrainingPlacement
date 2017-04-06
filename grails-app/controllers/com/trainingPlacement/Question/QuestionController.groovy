@@ -1,4 +1,5 @@
 package com.trainingPlacement.Question
+
 import com.trainingPlacement.Questions.Questions
 import com.trainingPlacement.CompanyDetails.CompanyDetails
 import com.trainingPlacement.SpringSecurity.User
@@ -26,16 +27,28 @@ class QuestionController {
                   answer     : params.answer,
                   dateCreated: new Date(),
                   lastUpdate : new Date(),
-                  author     : authorinstance
+                  author     : authorinstance,
+                  companydetails: abc
           ])
           println queinstance.question
           println queinstance.answer
           println queinstance.dateCreated
           println queinstance.lastUpdate
           println queinstance.author
-
+          println queinstance.companydetails
           queinstance.save()
-          redirect(controller: "question", action: "index")
+          redirect(controller: "question", action: "list")
       }
+    }
+
+    def list() {
+        println params
+        println params.company
+        def companyInstance = CompanyDetails.list()
+
+         def listInstance = Questions.list()
+            println listInstance
+            render(view:'list',model:[abc: listInstance, company: companyInstance])
+
     }
 }

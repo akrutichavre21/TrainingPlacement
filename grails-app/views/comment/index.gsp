@@ -4,9 +4,6 @@
 <body>
 <content tag = "body">
 
-
-
-
 <g:form controller="comment" action="save" method="post">
 
 <input type="text" name="id" value= "${viewInstance.id}">

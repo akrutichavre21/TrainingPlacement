@@ -7,11 +7,11 @@ class UserController {
     @Secured(['permitAll'])
     def home() {
         if(SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')){
-            redirect controller:'query' ,action:'index'
+            redirect controller:'query' ,action:'list'
             return
         }
         if(SpringSecurityUtils.ifAllGranted('ROLE_USER')){
-            redirect controller:'schedule' ,action:'index'
+            redirect controller:'newsfeed' ,action:'index'
             return
         }
     }

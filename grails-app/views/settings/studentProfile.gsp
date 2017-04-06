@@ -1,4 +1,4 @@
-<g:applyLayout name = "mainLayout">
+<g:applyLayout name = "mainLayoutStudent">
 <html>
 <head> </head>
 <body>
@@ -6,7 +6,7 @@
 
 <g:form controller="settings" action="save" method="post">
 
-<input type="hidden" name='id' value="${profile.id}">
+<input type="text" name='id' value="${profile.id}">
 
  FULLNAME:
  <input type="text" name="fullname" value="${profile.fullName}" required >

@@ -67,8 +67,8 @@
                         </a>
                     </li>
 
-                    <li class="${params.controller == 'profile' ? 'active':''}">
-                        <a href="/profile/index">
+                    <li class="${params.controller == 'settings' && params.action == 'studentProfile' ? 'active':''}">
+                        <a href="/settings/studentProfile">
                             <i class="fa fa-fw fa-user"></i>
                             <p>Profile</p>
                         </a>
