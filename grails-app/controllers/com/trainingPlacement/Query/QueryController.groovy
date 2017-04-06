@@ -1,4 +1,6 @@
 package com.trainingPlacement.Query
+import grails.plugin.springsecurity.annotation.Secured
+import com.trainingPlacement.Discussion.Discussion
 
 import com.trainingPlacement.Discussion.Discussion
 import com.trainingPlacement.SpringSecurity.User
@@ -6,12 +8,11 @@ import grails.plugin.springsecurity.annotation.Secured
 
 class QueryController {
 
-    def springSecurityService
-
     @Secured(['ROLE_ADMIN'])
     def index() {
 
-    }
+        def listinstance = Discussion.list()
+        render(view: 'index', model: [abc: listinstance])
 
     def save() {
         def authorinstance=User.get(springSecurityService.currentUser.id)
