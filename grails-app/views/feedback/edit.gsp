@@ -1,4 +1,4 @@
-<g:applyLayout name="mainLayout">
+<g:applyLayout name="mainLayoutStudent">
  <html>
     <head> </head>
     <body>

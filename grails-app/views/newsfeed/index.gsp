@@ -15,9 +15,6 @@
                 <p> Last Update : ${it.lastUpdate} </p>
                 <p> Notice : ${it.notice} </p>
                 <p> Venue : ${it.venue} </p>
-
-                <g:link controller="schedule" action="edit" id="${it.id}"> <button type="button" name="edit"> EDIT </button> </g:link>
-                <g:link controller="schedule" action="delete" id="${it.id}" > <button type="button" name="delete"> DELETE </button> </g:link>
                 </div>
 
                </g:each>

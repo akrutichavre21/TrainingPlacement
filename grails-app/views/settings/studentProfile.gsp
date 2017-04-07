@@ -4,9 +4,9 @@
 <body>
 <content tag = "body">
 
-<g:form controller="settings" action="save" method="post">
+<g:form controller="settings" action="s_save" method="post">
 
-<input type="text" name='id' value="${profile.id}">
+<input type="hidden" name='id' value="${profile.id}">
 
  FULLNAME:
  <input type="text" name="fullname" value="${profile.fullName}" required >

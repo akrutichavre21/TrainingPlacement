@@ -74,8 +74,8 @@
                         </a>
                     </li>
 
-                    <li class="${params.controller == 'settings' ? 'active':''}">
-                        <a href="/settings/index">
+                    <li class="${params.controller == 'settings' && params.action == 's_index' ? 'active':''}">
+                        <a href="/settings/s_index">
                             <i class="fa fa-fw fa-cog"></i>
                             <p>Settings</p>
                         </a>
