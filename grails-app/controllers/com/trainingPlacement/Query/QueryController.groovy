@@ -38,6 +38,7 @@ def springSecurityService
         redirect(controller:"query",action:"list")
     }
 
+    @Secured(['permitAll'])
     def list() {
         [newsfeed: Discussion.list()]
     }
